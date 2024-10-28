@@ -1,4 +1,4 @@
-﻿using Blogizm.Application.Features.CQRS.Commands;
+﻿using Blogizm.Application.Features.CQRS.Commands.AboutCommands;
 using Blogizm.Application.Interfaces;
 using Blogizm.Domain.Entities;
 using System;
