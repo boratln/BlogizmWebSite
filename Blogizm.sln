@@ -3,9 +3,51 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8370A226-AA22-446C-931B-AD939628455C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{739B6CA9-8DE4-4783-99DC-ADF82A2F5601}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{AC282B9C-6DF2-4ED4-8460-B8C8C34E9F88}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogizm.Domain", "Blogizm.Domain\Blogizm.Domain.csproj", "{2E2F2674-1697-4B00-B093-40544EE94527}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogizm.Application", "Blogizm.Application\Blogizm.Application.csproj", "{0180FB07-E976-404A-9CBD-7DFA98DF76FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogizm.Persistence", "Blogizm.Persistence\Blogizm.Persistence.csproj", "{A0760BC6-574B-4F1B-87CD-E0009B1BFDA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogizm.WebApi", "Blogizm.WebApi\Blogizm.WebApi.csproj", "{4767FCCC-AE80-4F7D-8C85-95EC945DF36C}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E2F2674-1697-4B00-B093-40544EE94527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E2F2674-1697-4B00-B093-40544EE94527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E2F2674-1697-4B00-B093-40544EE94527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E2F2674-1697-4B00-B093-40544EE94527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0180FB07-E976-404A-9CBD-7DFA98DF76FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0180FB07-E976-404A-9CBD-7DFA98DF76FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0180FB07-E976-404A-9CBD-7DFA98DF76FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0180FB07-E976-404A-9CBD-7DFA98DF76FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0760BC6-574B-4F1B-87CD-E0009B1BFDA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0760BC6-574B-4F1B-87CD-E0009B1BFDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0760BC6-574B-4F1B-87CD-E0009B1BFDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0760BC6-574B-4F1B-87CD-E0009B1BFDA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4767FCCC-AE80-4F7D-8C85-95EC945DF36C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4767FCCC-AE80-4F7D-8C85-95EC945DF36C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4767FCCC-AE80-4F7D-8C85-95EC945DF36C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4767FCCC-AE80-4F7D-8C85-95EC945DF36C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2E2F2674-1697-4B00-B093-40544EE94527} = {8370A226-AA22-446C-931B-AD939628455C}
+		{0180FB07-E976-404A-9CBD-7DFA98DF76FA} = {8370A226-AA22-446C-931B-AD939628455C}
+		{A0760BC6-574B-4F1B-87CD-E0009B1BFDA6} = {739B6CA9-8DE4-4783-99DC-ADF82A2F5601}
+		{4767FCCC-AE80-4F7D-8C85-95EC945DF36C} = {AC282B9C-6DF2-4ED4-8460-B8C8C34E9F88}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {416D0596-6338-42ED-A8F2-308CEBEFB4DB}
