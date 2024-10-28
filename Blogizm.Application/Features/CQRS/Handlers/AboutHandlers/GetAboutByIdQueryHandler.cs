@@ -21,6 +21,10 @@ namespace Blogizm.Application.Features.CQRS.Handlers.AboutHandlers
         public async Task <GetAboutByIdQueryResult> Handle(GetAboutByIdQuery query)
         {
             var value = await _repository.GetById(query.Id);
+            if (value == null)
+            {
+                return new GetAboutByIdQueryResult();
+            }
             return new GetAboutByIdQueryResult
             {
                 AboutId = value.AboutId,
