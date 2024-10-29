@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Blogizm.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+45d99ee95282e4c7838cbd3357798a5cc4285fee")]
 [assembly: System.Reflection.AssemblyProductAttribute("Blogizm.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Blogizm.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
