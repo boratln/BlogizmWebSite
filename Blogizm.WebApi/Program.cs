@@ -24,6 +24,18 @@ builder.Services.AddScoped<GetAboutBannerByIdQueryHandler>();
 builder.Services.AddScoped<RemoveAboutBannerCommandHandler>();
 builder.Services.AddScoped<CreateAboutBannerCommandHandler>();
 builder.Services.AddScoped<UpdateAboutBannerCommandHandler>();
+//Author
+builder.Services.AddScoped<GetAuthorQueryHandler>();
+builder.Services.AddScoped<GetAuthorByIdQueryHandler>();
+builder.Services.AddScoped<RemoveAuthorCommandHandler>();
+builder.Services.AddScoped<CreateAuthorCommandHandler>();
+builder.Services.AddScoped<UpdateAuthorCommandHandler>();
+//Client
+builder.Services.AddScoped<GetClientQueryHandler>();
+builder.Services.AddScoped<GetClientByIdQueryHandler>();
+builder.Services.AddScoped<RemoveClientCommandHandler>();
+builder.Services.AddScoped<CreateClientCommandHandler>();
+builder.Services.AddScoped<UpdateClientCommandHandler>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 var app = builder.Build();
 
