@@ -34,19 +34,19 @@ namespace Blogizm.WebApi.Controllers
         public async Task<IActionResult> CreateAboutBanner(CreateAboutBannerCommand command)
         {
             await _createAboutBannercommandhandler.Handle(command);
-            return Ok("Hakkımızda kısmı başarıyla eklendi");
+            return Ok("Hakkımızda Banner kısmı başarıyla eklendi");
         }
         [HttpPut("UpdateAboutBanner")]
         public async Task<IActionResult> UpdateAboutBanner(UpdateAboutBannerCommand command)
         {
             await _updateAboutBannercommandhandler.Handle(command);
-            return Ok("Hakkımızda kısmı başarıyla güncellendi");
+            return Ok("Hakkımızda Banner kısmı başarıyla güncellendi");
         }
         [HttpDelete("DeleteAboutBanner/{id}")]
         public async Task<IActionResult> DeleteAboutBanner(int id)
         {
             await _removeAboutBannercommandhandler.Handle(new RemoveAboutBannerCommand(id));
-            return Ok("Hakkımızda kısmı başarıyla silindi");
+            return Ok("Hakkımızda Banner kısmı başarıyla silindi");
         }
         [HttpGet("GetAboutBanner/{id}")]
         public async Task<IActionResult> GetAboutBanner(int id)
@@ -54,7 +54,7 @@ namespace Blogizm.WebApi.Controllers
             var value = await _getAboutBanneridqueryhandler.Handle(new GetAboutBannerByIdQuery(id));
             if (value.AboutBannerId == 0)
             {
-                return NotFound("Hakkımızda kısmı bulunamadı");
+                return NotFound("Hakkımızda Banner kısmı bulunamadı");
             }
             return Ok(value);
         }
