@@ -120,15 +120,31 @@ namespace Blogizm.Persistence.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("BlogCategoryId")
                         .HasColumnType("int");
+
+                    b.Property<string>("BlogImage1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BlogImage2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BlogImage3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CoverImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -138,9 +154,7 @@ namespace Blogizm.Persistence.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("TagId");
+                    b.HasIndex("BlogCategoryId");
 
                     b.ToTable("Blogs");
                 });
@@ -373,28 +387,20 @@ namespace Blogizm.Persistence.Migrations
             modelBuilder.Entity("Blogizm.Domain.Entities.Blog", b =>
                 {
                     b.HasOne("Blogizm.Domain.Entities.Author", "Author")
-                        .WithMany()
+                        .WithMany("Blogs")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Blogizm.Domain.Entities.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Blogizm.Domain.Entities.Tag", "Tag")
-                        .WithMany()
-                        .HasForeignKey("TagId")
+                    b.HasOne("Blogizm.Domain.Entities.BlogCategory", "BlogCategory")
+                        .WithMany("Blogs")
+                        .HasForeignKey("BlogCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Author");
 
-                    b.Navigation("Category");
-
-                    b.Navigation("Tag");
+                    b.Navigation("BlogCategory");
                 });
 
             modelBuilder.Entity("Blogizm.Domain.Entities.BlogCategory", b =>
@@ -425,6 +431,16 @@ namespace Blogizm.Persistence.Migrations
                     b.Navigation("Blog");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Blogizm.Domain.Entities.Author", b =>
+                {
+                    b.Navigation("Blogs");
+                });
+
+            modelBuilder.Entity("Blogizm.Domain.Entities.BlogCategory", b =>
+                {
+                    b.Navigation("Blogs");
                 });
 #pragma warning restore 612, 618
         }
