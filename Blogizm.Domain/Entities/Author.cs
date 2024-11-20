@@ -13,5 +13,6 @@ namespace Blogizm.Domain.Entities
         public string Surname {  get; set; }
         public string Description { get; set; }
         public string AuthorImage {  get; set; }
+        public List<Blog> Blogs { get; set; }
     }
 }
