@@ -1,6 +1,6 @@
 ﻿using Blogizm.Application.Features.Mediator.Queries.BlogCategoryQueries;
 using Blogizm.Application.Features.Mediator.Results.BlogCategoryResults;
-using Blogizm.Application.Interfaces;
+using Blogizm.Application.Interfaces.BlogCategoryInterfaces;
 using MediatR;
 using System;
 using System.Collections.Generic;
