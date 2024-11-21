@@ -1,4 +1,4 @@
-﻿using Blogizm.Application.Interfaces;
+﻿using Blogizm.Application.Interfaces.BlogCategoryInterfaces;
 using Blogizm.Domain.Entities;
 using Blogizm.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
