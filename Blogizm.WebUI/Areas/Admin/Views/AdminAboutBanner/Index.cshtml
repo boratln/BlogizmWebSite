@@ -1,4 +1,4 @@
-﻿
+﻿@model List<ResultAboutBannerDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -53,7 +53,10 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th>#</th>
-                                        <th>Hakkımızda Banner Adı</th>
+                                        <th>Hakkımızda Banner Başlık 1</th>
+                                        <th>Hakkımızda Banner Açıklama 1</th>
+                                        <th>Hakkımızda Banner Başlık 2</th>
+                                        <th>Hakkımızda Banner Açıklama 2</th>
                                         <th>Sil</th>
                                         <th>Güncelle</th>
 
@@ -67,9 +70,12 @@
                                         <tr>
 
                                             <th scope="row">@count</th>
-                                            <td>@data.Name</td>
-                                            <td><a href="/Admin/AdminAboutBanner/RemoveAboutBanner/@data.About BannerId" class="btn btn-outline-danger">Sil</a></td>
-                                            <td><a href="/Admin/AdminAboutBanner/UpdateAboutBanner/@data.About BannerId" class="btn btn-outline-success">Güncelle</a></td>
+                                            <td>@data.BannerTitle1</td>
+                                            <td>@data.BannerDesc1</td>
+                                            <td>@data.BannerTitle2</td>
+                                            <td>@data.BannerDesc2</td>
+                                            <td><a href="/Admin/AdminAboutBanner/RemoveAboutBanner/@data.AboutBannerId" class="btn btn-outline-danger">Sil</a></td>
+                                            <td><a href="/Admin/AdminAboutBanner/UpdateAboutBanner/@data.AboutBannerId" class="btn btn-outline-success">Güncelle</a></td>
 
                                         </tr>
                                     }
