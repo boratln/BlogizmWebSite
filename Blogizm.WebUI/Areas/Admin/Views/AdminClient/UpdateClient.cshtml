@@ -1,0 +1,47 @@
+﻿@model UpdateClientDto
+@{
+    ViewData["Title"] = "UpdateClient";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Referans Güncelleme İşlemi</h4>
+                        <p class="card-subtitle mb-4">İlgili parametreleri doldurup Referans güncelleme işlemini gerçekleştirebilirsiniz.</p>
+
+                        <form method="post">
+
+                            <input type="hidden" asp-for="ClientId" />
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Referans Ad Soyad</label>
+                                <input type="text" autocomplete="off" class="form-control" value="@Model.ClientName" asp-for="ClientName" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Referans  Açıklama</label>
+                                <input type="text" autocomplete="off" class="form-control" value="@Model.ClientDesc" asp-for="ClientDesc" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Referans  Resim URL </label>
+                                <input type="text" autocomplete="off" class="form-control" value="@Model.ClientImage" asp-for="ClientImage" id="exampleInputPassword1">
+                            </div>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Kaydet</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
