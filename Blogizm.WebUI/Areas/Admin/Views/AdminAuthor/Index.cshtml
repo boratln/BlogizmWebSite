@@ -1,4 +1,4 @@
-﻿
+﻿@model List<ResultAuthorDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -53,6 +53,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Yazar Adı</th>
+                                        <th>Yazar Açıklaması</th>
                                         <th>Sil</th>
                                         <th>Güncelle</th>
 
@@ -66,7 +67,8 @@
                                         <tr>
 
                                             <th scope="row">@count</th>
-                                            <td>@data.Name</td>
+                                            <td>@data.Name  @data.Surname</td>
+                                            <td>@data.Description</td>
                                             <td><a href="/Admin/AdminAuthor/RemoveAuthor/@data.AuthorId" class="btn btn-outline-danger">Sil</a></td>
                                             <td><a href="/Admin/AdminAuthor/UpdateAuthor/@data.AuthorId" class="btn btn-outline-success">Güncelle</a></td>
 
