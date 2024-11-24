@@ -18,21 +18,21 @@
                             <input type="hidden" asp-for="AuthorId" />
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Yazar Adı</label>
-                                <input type="text" autocomplete="off" class="form-control" asp-for="Name" id="exampleInputPassword1">
+                                <input type="text" autocomplete="off" class="form-control" value="@Model.Name" asp-for="Name" id="exampleInputPassword1">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Yazar Soyadı</label>
-                                <input type="text" autocomplete="off" class="form-control" asp-for="Surname" id="exampleInputPassword1">
+                                <input type="text" autocomplete="off" class="form-control" value="@Model.Surname" asp-for="Surname" id="exampleInputPassword1">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Yazar Açıklaması</label>
-                                <input type="text" autocomplete="off" class="form-control" asp-for="Description" id="exampleInputPassword1">
+                                <input type="text" autocomplete="off" class="form-control" value="@Model.Description" asp-for="Description" id="exampleInputPassword1">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Yazar Resim URL</label>
-                                <input type="text" autocomplete="off" class="form-control" asp-for="AuthorImage" id="exampleInputPassword1">
+                                <input type="text" autocomplete="off" class="form-control" value="@Model.AuthorImage" asp-for="AuthorImage" id="exampleInputPassword1">
                             </div>
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Ekle</button>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Kaydet</button>
                         </form>
 
                     </div> <!-- end card-body-->
