@@ -1,4 +1,4 @@
-﻿
+﻿@model List<ResultAboutDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -52,7 +52,8 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th>#</th>
-                                        <th>Hakkımızda Adı</th>
+                                        <th>Hakkımızda Başlık</th>
+                                        <th>Hakkımızda Açıklama</th>
                                         <th>Sil</th>
                                         <th>Güncelle</th>
 
@@ -66,7 +67,8 @@
                                         <tr>
 
                                             <th scope="row">@count</th>
-                                            <td>@data.Name</td>
+                                            <td>@data.Title</td>
+                                            <td>@data.Description</td>
                                             <td><a href="/Admin/AdminAbout/RemoveAbout/@data.AboutId" class="btn btn-outline-danger">Sil</a></td>
                                             <td><a href="/Admin/AdminAbout/UpdateAbout/@data.AboutId" class="btn btn-outline-success">Güncelle</a></td>
 
