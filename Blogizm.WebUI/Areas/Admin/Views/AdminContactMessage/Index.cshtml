@@ -1,0 +1,97 @@
+﻿@model List<ResultContactMessageDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+    var mesaj = TempData["mesaj"];
+    var baslik = TempData["baslik"];
+}
+@if (TempData["mesaj"] != null)
+{
+    <script>
+        Swal.fire({
+            title:'@Html.Raw(baslik)',
+            icon:'success',
+            text:'@Html.Raw(mesaj)',
+            confirmButtonText:'Tamam'
+        })
+    </script>
+}
+<div class="page-content">
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                    <h4 class="mb-0 font-size-18">Mesaj Listesi</h4>
+
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Blogizm</a></li>
+                            <li class="breadcrumb-item active">Mesajlar</li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Mesajlar</h4>
+                        <p class="card-subtitle mb-4">
+                            Mesajları Buradan görebilirsiniz
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Ad Soyad</th>
+                                        <th>Mail</th>
+                                        <th>Konu</th>
+                                        <th>İçerik</th>
+                                        <th>Sil</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var data in Model)
+                                    {
+
+                                        count++;
+                                        <tr>
+
+                                            <th scope="row">@count</th>
+                                            <td>@data.NameSurname</td>
+                                            <td>@data.Email</td>
+                                            <td>@data.Subject</td>
+                                            <td>@data.Message</td>
+                                            <td><a href="/Admin/AdminContactMessage/RemoveContactMessage/@data.ContactMessageId" class="btn btn-outline-danger">Sil</a></td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+            <!-- end col -->
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
