@@ -10,5 +10,6 @@ namespace Blogizm.Application.Interfaces.BlogInterfaces
     public interface IBlogRepository
     {
         Task<List<Blog>> GetBlogsWithAuthorAndCategories();
+        Task<List<Blog>> GetBlogByCategoryId(int categoryid);
     }
 }
