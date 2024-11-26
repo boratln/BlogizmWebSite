@@ -1,0 +1,113 @@
+﻿@model UpdateBlogDto
+@{
+    ViewData["Title"] = "UpdateBlog";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Blog Ekleme İşlemi</h4>
+                        <p class="card-subtitle mb-4">İlgili parametreleri doldurup Blog  ekleme işlemini gerçekleştirebilirsiniz.</p>
+
+                        <form method="post">
+                            <input type="hidden" asp-for="BlogId" />
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Ana Kategori</label>
+                                @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.CategoryValues, new { @class = "form-control", @id = "maincategory" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Blog Kategori</label>
+                                @Html.DropDownListFor(x => x.BlogCategoryId, (List<SelectListItem>)ViewBag.BlogCategoryValues, new { @class = "form-control", @id = "blogcategory" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Blog Başlık</label>
+                                <input type="text" autocomplete="off" class="form-control" asp-for="Title" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Blog  Açıklama</label>
+                                <input type="text" autocomplete="off" class="form-control" asp-for="Description" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Blog Kapak Resim URL</label>
+                                <input type="text" autocomplete="off" class="form-control" asp-for="CoverImageUrl" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Blog Resim 1</label>
+                                <input type="text" autocomplete="off" class="form-control" asp-for="BlogImage1" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Blog Resim 2</label>
+                                <input type="text" autocomplete="off" class="form-control" asp-for="BlogImage2" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Blog Resim 3</label>
+                                <input type="text" autocomplete="off" class="form-control" asp-for="BlogImage3" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Yazar</label>
+                                @Html.DropDownListFor(x => x.AuthorId, (List<SelectListItem>)ViewBag.AuthorValues, new { @class = "form-control" })
+                            </div>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Ekle</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script>
+       $(document).ready(function () {
+        function loadBlogCategories() {
+            var mainCategoryId = $('#maincategory').val();
+            var url = 'https://localhost:7023/api/BlogCategory/GetBlogCategoryWithCategoryId/' + mainCategoryId;
+            console.log("ID:" + mainCategoryId);
+
+            if (mainCategoryId) {
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    success: function (data) {
+                        var blogCategoryDropdown = $('#blogcategory');
+                        blogCategoryDropdown.empty(); 
+
+                        blogCategoryDropdown.append($('<option>', {
+                            value: '',
+                            text: 'Seçiniz'
+                        }));
+
+                      
+                        $.each(data, function (i, item) {
+                            blogCategoryDropdown.append($('<option>', {
+                                value: item.blogCategoryId, 
+                                text: item.name 
+                            }));
+                        });
+                    },
+                    error: function () {
+                        alert('Blog kategorileri yüklenirken bir hata oluştu.');
+                    }
+                });
+            } else {
+                $('#blogcategory').empty().append($('<option>', {
+                    value: '',
+                    text: 'Seçiniz'
+                }));
+            }
+        }
+        loadBlogCategories();
+
+        $('#maincategory').change(function () {
+            loadBlogCategories();
+        });
+    });
+</script>
+
