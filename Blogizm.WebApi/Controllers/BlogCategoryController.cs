@@ -53,5 +53,17 @@ namespace Blogizm.WebApi.Controllers
             var values= await _mediator.Send(new GetAllBlogWithCategoriesQuery());
             return Ok(values);
         }
+        [HttpGet("GetAllBlogCategoryWithGroupBy")]
+        public async Task<IActionResult> GetAllBlogCategoryWithGroupBy()
+        {
+            var values = await _mediator.Send(new GetAllBlogCategoryWithGroupByQuery());
+            return Ok(values);
+        }
+        [HttpGet("GetBlogCategoryWithCategoryId/{id}")]
+        public async Task<IActionResult> GetBlogCategoryWithCategoryId(int id)
+        {
+            var values=await _mediator.Send(new GetBlogCategoryWithCategoryIdQuery(id));
+            return Ok(values);
+        }
     }
 }
