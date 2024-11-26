@@ -13,6 +13,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<BlogContext>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        policy =>
+        {
+            policy.WithOrigins("https://localhost:7257") // Frontend'in çalýþtýðý URL
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
 // CQRS handlers
 builder.Services.ContainerDependecies();
 //Mediator
@@ -22,7 +32,7 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IBlogCategoryRepository), typeof(BlogCategoryRepository));
 builder.Services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
 var app = builder.Build();
-
+app.UseCors("AllowSpecificOrigin");
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
