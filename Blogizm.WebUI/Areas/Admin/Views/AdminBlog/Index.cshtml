@@ -1,0 +1,102 @@
+﻿@model List<ResultBlogDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+    var baslik = TempData["baslik"];
+    var mesaj = TempData["mesaj"];
+}
+
+@if (TempData["mesaj"] != null)
+{
+    <script>
+        Swal.fire({
+            title:'@Html.Raw(baslik)',
+            icon:'success',
+            text:'@Html.Raw(mesaj)',
+            confirmButtonText:'Tamam'
+        })
+    </script>
+}
+<div class="page-content">
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                    <h4 class="mb-0 font-size-18">Blog Listesi</h4>
+
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Blogizm</a></li>
+                            <li class="breadcrumb-item active">Bloglar</li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Blog</h4>
+                        <p class="card-subtitle mb-4">
+                            Blog listesini ekleyip silip güncelleme işlemleri yapılabilir.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Ana Kategori</th>
+                                        <th>Blog Kategori</th>
+                                        <th>Blog Başlık</th>
+                                        <th>Blog Açıklama</th>
+                                        <th>Blog'un Yazarı</th>
+                                        <th>Sil</th>
+                                        <th>Güncelle</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var data in Model)
+                                    {
+
+                                        count++;
+                                        <tr>
+
+                                            <th scope="row">@count</th>
+                                            <td>@data.CategoryName</td>
+                                            <td>@data.BlogCategoryName</td>
+                                            <td>@data.Title</td>
+                                            <td>@data.Description</td>
+                                            <td>@data.AuthorName</td>
+                                            <td><a href="/Admin/AdminBlog/RemoveBlog/@data.BlogId" class="btn btn-outline-danger">Sil</a></td>
+                                            <td><a href="/Admin/AdminBlog/UpdateBlog/@data.BlogId" class="btn btn-outline-success">Güncelle</a></td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+            <!-- end col -->
+
+
+
+        </div>
+
+        <a href="/Admin/AdminBlog/CreateBlog" class="btn btn-outline-primary">Yeni Blog Girişi</a>
+    </div>
+</div>
+
