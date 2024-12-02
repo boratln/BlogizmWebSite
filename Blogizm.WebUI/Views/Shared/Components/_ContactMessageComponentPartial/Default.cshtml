@@ -1,0 +1,23 @@
+﻿@model CreateContactMessageDto
+<div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+	<form method="post">
+		<div class="row">
+			<div class="col-6 mb-3">
+				<input type="text" class="form-control" asp-for="NameSurname" placeholder="Adınız Soyadınız">
+			</div>
+			<div class="col-6 mb-3">
+				<input type="email" class="form-control" asp-for="Email" placeholder="Email Adresiniz">
+			</div>
+			<div class="col-12 mb-3">
+				<input type="text" class="form-control" asp-for="Subject" placeholder="Konu">
+			</div>
+			<div class="col-12 mb-3">
+				<textarea name="" id="" cols="30" rows="7" name="Message" asp-for="Message" class="form-control" placeholder="Mesajınız"></textarea>
+			</div>
+
+			<div class="col-12">
+				<input type="submit" value="Send Message" class="btn btn-primary">
+			</div>
+		</div>
+	</form>
+</div>
