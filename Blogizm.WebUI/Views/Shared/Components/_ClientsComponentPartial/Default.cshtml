@@ -1,0 +1,12 @@
+﻿@model List<ResultClientDto>
+<div class="row">
+	@foreach(var data in Model){
+		<div class="col-lg-4 mb-4 text-center" data-aos="fade-up" data-aos-delay="0">
+			<img src="@data.ClientImage" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
+			<h5 class="text-black">@data.ClientName</h5>
+			<p>@data.ClientDesc </p>
+		</div>
+	}
+	
+
+</div>
