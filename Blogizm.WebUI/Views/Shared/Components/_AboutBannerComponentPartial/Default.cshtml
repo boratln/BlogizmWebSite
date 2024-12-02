@@ -1,0 +1,25 @@
+﻿@model ResultAboutBannerDto
+<div class="section sec-halfs py-0 mt-3">
+	<div class="container">
+		<div class="half-content d-lg-flex align-items-stretch">
+			<div class="img flex-grow-1" style="background-image: url('@Model.BannerImg1'); background-size: cover; background-position: center;" data-aos="fade-in" data-aos-delay="100">
+			</div>
+			<div class="text flex-grow-1 d-flex flex-column justify-content-center p-4">
+				<h2 class="heading text-primary mb-3">@Model.BannerTitle1</h2>
+				<p class="mb-4" style="font-size:25px;color:black">@Model.BannerDesc1</p>
+			</div>
+		</div>
+
+
+		<div class="half-content d-lg-flex align-items-stretch">
+			<div class="img order-md-2" style="background-image: url('@Model.BannerImg2')" data-aos="fade-in">
+			</div>
+			<div class="text flex-grow-1 d-flex flex-column justify-content-center p-4" style="padding-top:20px">
+				<h2 class="heading text-primary mb-3">@Model.BannerTitle2</h2>
+				<br />
+				<p class="mb-4" style="font-size:25px;color:black">@Model.BannerDesc2</p>
+			</div>
+		</div>
+	</div>
+
+</div>
