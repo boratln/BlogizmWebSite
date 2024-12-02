@@ -10408,7 +10408,10 @@ textarea {
 .sec-halfs .half-content .img {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center; }
+  background-position: center;
+  height:600px;
+
+}
   @media (max-width: 991.98px) {
     .sec-halfs .half-content .img {
       height: 450px; } }
