@@ -11,6 +11,8 @@ namespace Blogizm.Application.Features.CQRS.Results.ContactAddressResults
         public int ContactAddressId { get; set; }
         public string Title { get; set; }
         public string Icon { get; set; }
+        public string Description { get; set; }
+
         public string URL { get; set; }
     }
 }

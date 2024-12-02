@@ -23,6 +23,7 @@ namespace Blogizm.Application.Features.CQRS.Handlers.ContactAddressHandlers
             value.Title = command.Title;
             value.URL= command.URL;
             value.Icon= command.Icon;
+            value.Description = command.Description;
             await _repository.Update(value);
         }
     }

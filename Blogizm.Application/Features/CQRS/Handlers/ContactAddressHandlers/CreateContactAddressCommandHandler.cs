@@ -24,6 +24,7 @@ namespace Blogizm.Application.Features.CQRS.Handlers.ContactAddressHandlers
                 Icon = command.Icon,
                 Title = command.Title,
                 URL = command.URL,
+                Description = command.Description,
             });
         }
     }

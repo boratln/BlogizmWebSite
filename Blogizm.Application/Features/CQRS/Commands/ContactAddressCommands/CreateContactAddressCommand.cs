@@ -10,6 +10,8 @@ namespace Blogizm.Application.Features.CQRS.Commands.ContactAddressCommands
     {
         public string Title { get; set; }
         public string Icon { get; set; }
+        public string Description { get; set; }
+
         public string URL { get; set; }
     }
 }

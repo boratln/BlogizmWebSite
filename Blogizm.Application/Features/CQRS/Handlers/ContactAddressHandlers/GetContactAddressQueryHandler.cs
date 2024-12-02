@@ -25,7 +25,8 @@ namespace Blogizm.Application.Features.CQRS.Handlers.ContactAddressHandlers
                 ContactAddressId = x.ContactAddressId,
                 Icon = x.Icon,
                 Title = x.Title,
-                URL = x.URL
+                URL = x.URL,
+                Description=x.Description
             }).ToList();
         }
     }
