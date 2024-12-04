@@ -28,6 +28,7 @@ namespace Blogizm.Application.Features.Mediator.Handlers.ContactMessageHandlers
                 Message = request.Message,
                 NameSurname = request.NameSurname,
                 Subject = request.Subject,
+                CreatedDate = request.CreatedDate,
             });
         }
     }

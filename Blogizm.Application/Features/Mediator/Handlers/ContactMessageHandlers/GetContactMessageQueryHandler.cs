@@ -30,7 +30,8 @@ namespace Blogizm.Application.Features.Mediator.Handlers.ContactMessageHandlers
                 IsReaded = x.IsReaded,
                 Message = x.Message,
                 NameSurname = x.NameSurname,
-                Subject = x.Subject
+                Subject = x.Subject,
+                CreatedDate=x.CreatedDate
             }).ToList();
         }
     }
