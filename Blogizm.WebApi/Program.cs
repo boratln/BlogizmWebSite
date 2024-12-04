@@ -7,6 +7,8 @@ using Blogizm.Persistence.Repositories.BlogCategoryRepositories;
 using Blogizm.Application.Interfaces.BlogCategoryInterfaces;
 using Blogizm.Persistence.Repositories.BlogRepositories;
 using Blogizm.Application.Interfaces.BlogInterfaces;
+using Blogizm.Application.Interfaces.ContactMessageInterfaces;
+using Blogizm.Persistence.Repositories.ContactMessageRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
@@ -31,6 +33,7 @@ builder.Services.AddApplicationService(builder.Configuration);
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IBlogCategoryRepository), typeof(BlogCategoryRepository));
 builder.Services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository));
+builder.Services.AddScoped(typeof(IContactMessageRepository), typeof(ContactMessageRepository));
 var app = builder.Build();
 app.UseCors("AllowSpecificOrigin");
 if (app.Environment.IsDevelopment())
