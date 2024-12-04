@@ -1,4 +1,5 @@
 ﻿using Blogizm.Dtos.CategoryDtos;
+using Blogizm.WebUI.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
@@ -6,7 +7,7 @@ namespace Blogizm.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/AdminCategory")]
-    public class AdminCategoryController : Controller
+    public class AdminCategoryController : BaseController
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
