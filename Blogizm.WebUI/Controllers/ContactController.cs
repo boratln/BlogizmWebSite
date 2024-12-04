@@ -21,6 +21,7 @@ namespace Blogizm.WebUI.Controllers
         public async Task<ActionResult> Index(CreateContactMessageDto contactMessageDto)
         {
             contactMessageDto.IsReaded = false;
+            contactMessageDto.CreatedDate = DateTime.Now;
             var client = _httpClientFactory.CreateClient();
             var Json=JsonConvert.SerializeObject(contactMessageDto);
             var content=new StringContent(Json,Encoding.UTF8,"application/json");
