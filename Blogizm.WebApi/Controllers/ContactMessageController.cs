@@ -33,5 +33,17 @@ namespace Blogizm.WebApi.Controllers
         await _mediator.Send(new RemoveContactMessageCommand(id));
             return Ok("Mesaj silindi");
         }
+        [HttpGet("ContactMessageWhereIsReadableFalseCount")]
+        public async Task<IActionResult> ContactMessageWhereIsReadableFalseCount()
+        {
+          var count=  await _mediator.Send(new ContactMessageWhereIsReadableFalseCountQuery());
+            return Ok(count);
+        }
+        [HttpGet("GetContactMessageWhereIsReadableFalse")]
+        public async Task<IActionResult> GetContactMessageWhereIsReadableFalse()
+        {
+            var values = await _mediator.Send(new GetContactMessageWhereIsReadableFalseQuery());
+            return Ok(values);
+        }
     }
 }
