@@ -32,6 +32,7 @@ namespace Blogizm.Application.Features.Mediator.Handlers.BlogHandlers
                 CreatedDate = request.CreatedDate,
                 Description = request.Description,
                 Title = request.Title,
+                VideoUrl = request.VideoUrl,
             });
         }
     }

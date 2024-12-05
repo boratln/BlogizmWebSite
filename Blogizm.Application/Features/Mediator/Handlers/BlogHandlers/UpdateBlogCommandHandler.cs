@@ -29,6 +29,7 @@ namespace Blogizm.Application.Features.Mediator.Handlers.BlogHandlers
             value.BlogImage1 = request.BlogImage1;
             value.BlogImage2 = request.BlogImage2;
             value.BlogImage3 = request.BlogImage3;
+            value.VideoUrl = request.VideoUrl;
             await _blogRepository.Update(value);
         }
     }
