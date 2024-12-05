@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigin",
         policy =>
         {
-            policy.WithOrigins("https://localhost:7257") // Frontend'in çalýþtýðý URL
+            policy.WithOrigins("https://192.168.1.93") // Frontend'in çalýþtýðý URL
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
