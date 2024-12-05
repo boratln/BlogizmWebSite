@@ -11,5 +11,6 @@ namespace Blogizm.Application.Interfaces.BlogInterfaces
     {
         Task<List<Blog>> GetBlogsWithAuthorAndCategories();
         Task<List<Blog>> GetBlogByCategoryId(int categoryid);
+        Task<List<Blog>> GetBlogWithAuthorAndCategoryDesc();
     }
 }
