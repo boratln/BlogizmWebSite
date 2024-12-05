@@ -15,8 +15,9 @@ namespace Blogizm.Dtos.BlogDtos
         public string Description { get; set; }
         public string CoverImageUrl { get; set; }
         public DateTime CreatedDate { get; set; }
-        public string BlogImage1 { get; set; }
-        public string BlogImage2 { get; set; }
-        public string BlogImage3 { get; set; }
+        public string? BlogImage1 { get; set; }
+        public string? BlogImage2 { get; set; }
+        public string? BlogImage3 { get; set; }
+        public string? VideoUrl { get; set; }
     }
 }
