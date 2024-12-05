@@ -38,8 +38,7 @@ namespace Blogizm.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> CreateBlog()
         {
-            //category idsi seçilecek
-            //blog category oto gelecek
+
             var client=_httpClientFactory.CreateClient();
             var categoryResponse = await client.GetAsync("https://localhost:7023/api/Category/GetAllCategory");
             if (categoryResponse.IsSuccessStatusCode)
@@ -109,7 +108,7 @@ namespace Blogizm.WebUI.Areas.Admin.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            var responseMessage = await client.DeleteAsync("https://localhost:7023/api/Blog/DeleteBlog/" + id);
+            var responseMessage = await client.DeleteAsync("https://localhost:7023/api/Blog/RemoveBlog/" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
