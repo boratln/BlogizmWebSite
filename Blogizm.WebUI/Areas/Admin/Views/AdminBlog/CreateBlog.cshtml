@@ -52,6 +52,10 @@
                                 <label for="exampleInputPassword1">Yazar</label>
                                 @Html.DropDownListFor(x => x.AuthorId, (List<SelectListItem>)ViewBag.AuthorValues, new { @class = "form-control" })
                             </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Video URL</label>
+                                <input type="text" asp-for="VideoUrl" class="form-control" autocomplete="off" />
+                            </div>
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Ekle</button>
                         </form>
 
@@ -65,46 +69,7 @@
     </div>
 </div>
 <script>
-    // $(document).ready(function () {
-    //     $('#maincategory').change(function () {
-    //         var mainCategoryId = $(this).val(); 
-    //             var url = 'https://localhost:7023/api/BlogCategory/GetBlogCategoryWithCategoryId/'+mainCategoryId; 
-    //             console.log("ID:"+mainCategoryId);
-    //           if (mainCategoryId) {
-    //             $.ajax({
-    //                 url: url,
-    //                 type: 'GET',
-    //                 success: function (data) {
-    //                     var blogCategoryDropdown = $('#blogcategory');
-    //                        console.log("AJAX Başarılı, Dönen Veri:", data); // API'den dönen veriyi logla
 
-    //                     blogCategoryDropdown.empty(); // Mevcut seçenekleri temizle
-                       
-    //                     blogCategoryDropdown.append($('<option>', {
-    //                         value: '',
-    //                         text: 'Seçiniz'
-    //                     }));
-
-    //                     // API'den dönen değerleri dropdown'a ekle
-    //                     $.each(data, function (i, item) {
-    //                         blogCategoryDropdown.append($('<option>', {
-    //                             value: item.blogCategoryId, // Backend'den dönen ID
-    //                             text: item.name // Backend'den dönen isim
-    //                         }));
-    //                     });
-    //                 },
-    //                 error: function () {
-    //                     alert('Blog kategorileri yüklenirken bir hata oluştu.');
-    //                 }
-    //             });
-    //         } else {
-    //             $('#blogcategory').empty().append($('<option>', {
-    //                 value: '',
-    //                 text: 'Seçiniz'
-    //             }));
-    //         }
-    //     });
-    // });
         $(document).ready(function () {
         function loadBlogCategories() {
             var mainCategoryId = $('#maincategory').val(); // Seçili değeri al
@@ -145,10 +110,8 @@
             }
         }
 
-        // Sayfa yüklendiğinde çalıştır
         loadBlogCategories();
 
-        // Selectbox değiştiğinde çalıştır
         $('#maincategory').change(function () {
             loadBlogCategories();
         });
