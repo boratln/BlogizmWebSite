@@ -56,6 +56,7 @@
                                         <th>Konu</th>
                                         <th>İçerik</th>
                                         <th>Sil</th>
+                                        <th>Mesaj Detay </th>
 
                                     </tr>
                                 </thead>
@@ -72,7 +73,7 @@
                                             <td>@data.Subject</td>
                                             <td>@data.Message</td>
                                             <td><a href="/Admin/AdminContactMessage/RemoveContactMessage/@data.ContactMessageId" class="btn btn-outline-danger">Sil</a></td>
-
+                                            <td><a href="/Admin/AdminContactMessage/GetContactMessage/@data.ContactMessageId">Mesaj Detay</a></td>
                                         </tr>
                                     }
                                 </tbody>
