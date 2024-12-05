@@ -30,5 +30,11 @@ namespace Blogizm.Persistence.Repositories.BlogRepositories
             var values = await _blogContext.Blogs.Include(x => x.Author).Include(x => x.BlogCategory).ThenInclude(x=>x.Category).ToListAsync();
             return values;
         }
+
+        public async Task<List<Blog>> GetBlogWithAuthorAndCategoryDesc()
+        {
+            var values = await _blogContext.Blogs.Include(x => x.Author).Include(x => x.BlogCategory).ThenInclude(x => x.Category).OrderByDescending(x => x.BlogId).Take(5).ToListAsync();
+            return values;
+        }
     }
 }
