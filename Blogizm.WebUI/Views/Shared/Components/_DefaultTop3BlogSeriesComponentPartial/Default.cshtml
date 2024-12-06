@@ -1,0 +1,67 @@
+﻿@model List<ResultTop3BlogSeriesDto>
+@functions {
+	public string GetRelativeTime(DateTime createdDate)
+	{
+		var timeSpan = DateTime.Now - createdDate;
+
+		if (timeSpan.TotalMinutes == 0)
+		{
+			return $"{(int)timeSpan.TotalSeconds} saniye önce";
+		}
+		if (timeSpan.TotalMinutes < 60)
+		{
+			return $"{(int)timeSpan.TotalMinutes} dakika önce";
+		}
+		else if (timeSpan.TotalHours < 24)
+		{
+			return $"{(int)timeSpan.TotalHours} saat önce";
+		}
+		else
+		{
+			return $"{(int)timeSpan.TotalDays} gün önce";
+		}
+	}
+}
+<section class="section posts-entry">
+	<div class="container">
+		<div class="row mb-4">
+			<div class="col-sm-6">
+				<h2 class="posts-entry-title">Dizi</h2>
+			</div>
+			<div class="col-sm-6 text-sm-end">
+				<a href="category.html" class="read-more">Tümünü Gör</a>
+			</div>
+		</div>
+		<div class="row g-3">
+			@foreach(var data in Model){
+				var relativeTime = GetRelativeTime(data.CreatedDate);
+				<div class="col-md-4">
+					<div class="blog-entry">
+						<a href="single.html" class="img-link">
+							<img src="@data.CoverImageUrl" alt="@data.Title" class="img-fluid">
+						</a>
+						<br />
+						<h2><a href="single.html">@data.Title</a></h2>
+						<p id="blogseriesdesc-@data.BlogId">@data.Description</p>
+						<span class="date" style="float:right" >@relativeTime</span>
+						
+					<a href="single.html" class="btn btn-sm btn-outline-primary">Devamını Oku</a>
+					
+
+						<script>
+							document.querySelectorAll('[id^="blogseriesdesc-"]').forEach(element => {
+								const text = element.textContent; // Veya innerText
+								const substringText = text.substring(0, 150); // İlk 100 karakteri al
+								console.log("Text:", text);
+								console.log("Substring Text:", substringText);
+								element.textContent = substringText + "...";
+							});
+						</script>
+					</div>
+				</div>
+			}
+	
+		
+		</div>
+	</div>
+</section>
