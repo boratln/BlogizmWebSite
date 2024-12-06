@@ -10,6 +10,8 @@ namespace Blogizm.Application.Features.Mediator.Results.BlogResults
     {
         public int BlogId { get; set; }
         public int CategoryId { get; set; }
+        public string CategoryName {  get; set; }
+        public string AuthorName {  get; set; }
         public int BlogCategoryId { get; set; }
         public int AuthorId { get; set; }
         public string Title { get; set; }
