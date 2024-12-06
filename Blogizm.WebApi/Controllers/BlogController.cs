@@ -66,5 +66,11 @@ namespace Blogizm.WebApi.Controllers
             var values = await _mediator.Send(new GetBlogWithAuthorAndCategoryDescQuery());
             return Ok(values);
         }
+        [HttpGet("GetTop3BlogByCategoryId/{id}")]
+        public async Task<IActionResult> GetTop3BlogByCategoryId(int id)
+        {
+            var values = await _mediator.Send(new GetTop3BlogByCategoryIdQuery(id));
+            return Ok(values);
+        }
     }
 }
