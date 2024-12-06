@@ -21,7 +21,7 @@ namespace Blogizm.Persistence.Repositories.BlogRepositories
 
         public async Task<List<Blog>> GetBlogByCategoryId(int categoryid)
         {
-            var values= await _blogContext.Blogs.Include(x=>x.BlogCategory).ThenInclude(x=>x.Category).Where(x=>x.BlogCategory.CategoryId == categoryid).ToListAsync();
+            var values= await _blogContext.Blogs.Include(x=>x.BlogCategory).ThenInclude(x=>x.Category).Include(x=>x.Author).Where(x=>x.BlogCategory.CategoryId == categoryid).ToListAsync();
             return values;
         }
 
