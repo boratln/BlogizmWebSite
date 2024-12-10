@@ -72,5 +72,17 @@ namespace Blogizm.WebApi.Controllers
             var values = await _mediator.Send(new GetTop3BlogByCategoryIdQuery(id));
             return Ok(values);
         }
+        [HttpGet("GetBlogByCategoryIdCount/{id}")]
+        public async Task<IActionResult> GetBlogByCategoryIdCount(int id)
+        {
+            var values = await _mediator.Send(new GetBlogByCategoryIdCountQuery(id));
+            return Ok(values);
+        }
+        [HttpGet("BlogAndBlogCategoryCountByCategoryId/{id}")]
+        public async Task<IActionResult> BlogAndBlogCategoryCountByCategoryId(int id)
+        {
+            var values = await _mediator.Send(new BlogAndBlogCategoryCountByCategoryIdQuery(id));
+            return Ok(values);
+        }
     }
 }
