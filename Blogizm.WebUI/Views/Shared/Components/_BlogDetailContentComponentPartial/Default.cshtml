@@ -1,0 +1,30 @@
+﻿@model ResultBlogDetailContentDto
+
+<div class="post-content-body">
+<p>@Model.title</p>
+    <div class="row my-4">
+        @if (Model.blogImage1 != null)
+        {
+            <div class="col-md-4 col-12 mb-4">
+                <img src="@Model.blogImage1" alt="Image placeholder" class="img-fluid rounded">
+            </div>
+        }
+
+        @if (Model.blogImage2 != null)
+        {
+            <div class="col-md-4 col-12 mb-4">
+                <img src="@Model.blogImage2" alt="Image placeholder" class="img-fluid rounded">
+            </div>
+        }
+
+        @if (Model.blogImage3 != null)
+        {
+            <div class="col-md-4 col-12 mb-4">
+                <img src="@Model.blogImage3" alt="Image placeholder" class="img-fluid rounded">
+            </div>
+        }
+    </div>
+
+
+
+</div>
