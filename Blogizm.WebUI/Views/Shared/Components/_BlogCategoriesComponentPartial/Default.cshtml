@@ -1,0 +1,12 @@
+﻿@model List<BlogAndBlogCategoryCountByCategoryIdDto>
+<div class="sidebar-box">
+    <h3 class="heading">Blog Kategoriler</h3>
+    <ul class="categories">
+        @foreach(var data in Model){
+            <li><a href="#">@data.BlogCategoryName <span>(@data.BlogCount)</span></a></li>
+
+        }
+    
+    </ul>
+</div>
+<!-- END sidebar-box -->
