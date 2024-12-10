@@ -43,13 +43,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-var localizationOptions = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value;
-app.Use(async (context, next) =>
-{
-    context.Items["SupportedCultures"] = localizationOptions.SupportedCultures;
-    await next.Invoke();
-});
-app.UseRequestLocalization(localizationOptions);
+
 
 app.UseRouting();
 
