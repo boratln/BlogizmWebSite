@@ -1,4 +1,5 @@
-﻿using Blogizm.Domain.Entities;
+﻿using Blogizm.Application.Dtos.BlogDtos;
+using Blogizm.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,7 @@ namespace Blogizm.Application.Interfaces.BlogInterfaces
         Task<List<Blog>> GetBlogByCategoryId(int categoryid);
         Task<List<Blog>> GetBlogWithAuthorAndCategoryDesc();
         Task<List<Blog>> GetTop3BlogByCategoryId(int categoryid);
+        int GetCountByCategoryId(int categoryid);
+        Task<List<BlogAndBlogCategoryCountDto>> BlogAndBlogCategoryCountByCategoryId(int categoryid);
     }
 }
