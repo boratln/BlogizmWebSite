@@ -5,20 +5,21 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-              
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" style="width: 90%;">
+                <!-- Genişliği %90 yapıldı -->
                 <div class="carousel-inner">
                     @for (var i = 0; i < Model.Count; i++)
                     {
                         var data = Model[i];
                         <div class="carousel-item @(i == 0 ? "active" : "")">
+                            <a href="/Blog/BlogDetail/@data.BlogId">
                             <img src="@data.CoverImageUrl" style="height: 500px; object-fit: contain;" class="d-block w-100" alt="@data.Title">
+                            </a>
                             <div class="carousel-caption d-block"
                                  style="position: absolute; bottom: 10%; width: 100%; background-color: rgba(0, 0, 0, 0.6); color: white; padding: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); font-size: 1.5rem; font-weight: bold;">
                                 <h5>@data.Title</h5>
                             </div>
                         </div>
-
                     }
                 </div>
 
