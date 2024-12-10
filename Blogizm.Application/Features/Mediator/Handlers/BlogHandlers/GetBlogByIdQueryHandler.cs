@@ -23,20 +23,38 @@ namespace Blogizm.Application.Features.Mediator.Handlers.BlogHandlers
         public async Task<GetBlogByIdQueryResult> Handle(GetBlogByIdQuery request, CancellationToken cancellationToken)
         {
             var value = await _blogRepository.GetById(request.Id);
-            return new GetBlogByIdQueryResult
+            if (value.VideoUrl != null)
             {
-                AuthorId = value.AuthorId,
-                BlogCategoryId = value.BlogCategoryId,
-                BlogId = value.BlogId,
-                BlogImage1 = value.BlogImage1,
-                BlogImage2 = value.BlogImage2,
-                BlogImage3 = value.BlogImage3,
-                CoverImageUrl = value.CoverImageUrl,
-                CreatedDate = value.CreatedDate,
-                Description = value.Description,
-                Title = value.Title,
-                VideoUrl=value.VideoUrl,
-            };
+                return new GetBlogByIdQueryResult
+                {
+                    AuthorId = value.AuthorId,
+                    BlogCategoryId = value.BlogCategoryId,
+                    BlogId = value.BlogId,
+                    BlogImage1 = value.BlogImage1,
+                    BlogImage2 = value.BlogImage2,
+                    BlogImage3 = value.BlogImage3,
+                    CoverImageUrl = value.CoverImageUrl,
+                    CreatedDate = value.CreatedDate,
+                    Description = value.Description,
+                    Title = value.Title,
+                    VideoUrl = value.VideoUrl,
+                };
+            }
+                return new GetBlogByIdQueryResult
+                {
+                    AuthorId = value.AuthorId,
+                    BlogCategoryId = value.BlogCategoryId,
+                    BlogId = value.BlogId,
+                    BlogImage1 = value.BlogImage1,
+                    BlogImage2 = value.BlogImage2,
+                    BlogImage3 = value.BlogImage3,
+                    CoverImageUrl = value.CoverImageUrl,
+                    CreatedDate = value.CreatedDate,
+                    Description = value.Description,
+                    Title = value.Title,
+                };
+            }
+           
         }
     }
-}
+
