@@ -3,6 +3,9 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/UILayout/Index.cshtml";
     var category = Model[0].CategoryName;
+    var count =  ViewBag.count;
+   
+    var firstpage = 1;
 }
 
 <div class="hero overlay inner-page bg-primary py-5">
@@ -23,118 +26,61 @@
                 @foreach(var data in Model){
                     <div class="blog-entry d-flex blog-entry-search-item">
                         <div>
-                        <a href="single.html" class="img-link me-4">
-                            <img src="@data.CoverImageUrl" alt="Image" class="custom-img">
-                        </a>
+                            <a href="/Blog/BlogDetail/@data.BlogId" class="img-link me-4">
+                                <img src="@data.CoverImageUrl" alt="Image" class="custom-img">
+                            </a>
                         </div>
                         <div>
                             <span class="date"> @data.CreatedDate.ToShortDateString() <a href="#" style="text-decoration:none">@data.CategoryName</a></span>
                             <h2><a href="single.html" style="text-decoration:none">@data.Title</a></h2>
                             <p>@data.Description</p>
-                            <p><a href="single.html" class="btn btn-sm btn-outline-primary">Devamını Oku</a></p>
+                            <p><a href="/Blog/BlogDetail/@data.BlogId" class="btn btn-sm btn-outline-primary">Devamını Oku</a></p>
                         </div>
                     </div>
                 }
-            
-
-            
-
                 <div class="row text-start pt-5 border-top">
                     <div class="col-md-12">
                         <div class="custom-pagination">
-                            <span>1</span>
-                            <a href="#" style="text-decoration:none">2</a>
-                            <a href="#" style="text-decoration:none">3</a>
-                            <a href="#" style="text-decoration:none">4</a>
-                            <span>...</span>
-                            <a href="#" style="text-decoration:none">15</a>
+                            @if (ViewBag.Pagination != null)
+                            {
+                                var pagination = (BlogPaginationDto)ViewBag.Pagination;
+
+                                // Önceki Sayfa
+                                if (pagination.CurrentPage > 1)
+                                {
+                                    <a href="@Url.Action("Index", new { id = ViewBag.id, page = pagination.CurrentPage - 1 })" style="text-decoration:none">Önceki</a>
+                                }
+
+                                // Sayfa Numaraları
+                                for (int i = 1; i <= pagination.TotalPages; i++)
+                                {
+                                    if (i == pagination.CurrentPage)
+                                    {
+                                        <span>@i</span> <!-- Aktif Sayfa -->
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Index", new { id = ViewBag.id, page = i })" style="text-decoration:none">@i</a>
+                                    }
+                                }
+
+                                // Sonraki Sayfa
+                                if (pagination.CurrentPage < pagination.TotalPages)
+                                {
+                                    <a href="@Url.Action("Index", new { id = ViewBag.id, page = pagination.CurrentPage + 1 })" style="text-decoration:none">Sonraki</a>
+                                }
+                            }
                         </div>
                     </div>
                 </div>
+
 
             </div>
 
             <div class="col-lg-4 sidebar">
-
-                <div class="sidebar-box search-form-wrap mb-4">
-                    <form action="#" class="sidebar-search-form">
-                        <span class="bi-search"></span>
-                        <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
-                    </form>
-                </div>
-                <!-- END sidebar-box -->
-                <div class="sidebar-box">
-                    <h3 class="heading">Popular Posts</h3>
-                    <div class="post-entry-sidebar">
-                        <ul>
-                            <li>
-                                <a href="">
-                                    <img src="images/img_1_sq.jpg" alt="Image placeholder" class="me-4 rounded">
-                                    <div class="text">
-                                        <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-                                        <div class="post-meta">
-                                            <span class="mr-2">March 15, 2018 </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="images/img_2_sq.jpg" alt="Image placeholder" class="me-4 rounded">
-                                    <div class="text">
-                                        <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-                                        <div class="post-meta">
-                                            <span class="mr-2">March 15, 2018 </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="images/img_3_sq.jpg" alt="Image placeholder" class="me-4 rounded">
-                                    <div class="text">
-                                        <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-                                        <div class="post-meta">
-                                            <span class="mr-2">March 15, 2018 </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- END sidebar-box -->
-
-                <div class="sidebar-box">
-                    <h3 class="heading">Categories</h3>
-                    <ul class="categories">
-                        <li><a href="#">Food <span>(12)</span></a></li>
-                        <li><a href="#">Travel <span>(22)</span></a></li>
-                        <li><a href="#">Lifestyle <span>(37)</span></a></li>
-                        <li><a href="#">Business <span>(42)</span></a></li>
-                        <li><a href="#">Adventure <span>(14)</span></a></li>
-                    </ul>
-                </div>
-                <!-- END sidebar-box -->
-
-                <div class="sidebar-box">
-                    <h3 class="heading">Tags</h3>
-                    <ul class="tags">
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Adventure</a></li>
-                        <li><a href="#">Food</a></li>
-                        <li><a href="#">Lifestyle</a></li>
-                        <li><a href="#">Business</a></li>
-                        <li><a href="#">Freelancing</a></li>
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Adventure</a></li>
-                        <li><a href="#">Food</a></li>
-                        <li><a href="#">Lifestyle</a></li>
-                        <li><a href="#">Business</a></li>
-                        <li><a href="#">Freelancing</a></li>
-                    </ul>
-                </div>
-
+                @await Component.InvokeAsync("_BlogSearchComponentPartial")
+                @await Component.InvokeAsync("_BlogPopularPostComponentPartial")
+                @await Component.InvokeAsync("_BlogCategoriesComponentPartial", new { id = ViewBag.id })
             </div>
         </div>
     </div>
