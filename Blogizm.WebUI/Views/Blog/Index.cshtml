@@ -26,15 +26,16 @@
                 @foreach(var data in Model){
                     <div class="blog-entry d-flex blog-entry-search-item">
                         <div>
-                            <a href="/Blog/BlogDetail/@data.BlogId" class="img-link me-4">
+                            <a href="/Blog/BlogDetail/@data.BlogId?param=@data.CategoryId" class="img-link me-4">
                                 <img src="@data.CoverImageUrl" alt="Image" class="custom-img">
                             </a>
                         </div>
                         <div>
+                           
                             <span class="date"> @data.CreatedDate.ToShortDateString() <a href="#" style="text-decoration:none">@data.CategoryName</a></span>
-                            <h2><a href="single.html" style="text-decoration:none">@data.Title</a></h2>
+                            <h2><a href="/Blog/BlogDetail/@data.BlogId?param=@data.CategoryId" style="text-decoration:none">@data.Title</a></h2>
                             <p>@data.Description</p>
-                            <p><a href="/Blog/BlogDetail/@data.BlogId" class="btn btn-sm btn-outline-primary">Devamını Oku</a></p>
+                            <p><a href="/Blog/BlogDetail/@data.BlogId?param=@data.CategoryId" class="btn btn-sm btn-outline-primary">Devamını Oku</a></p>
                         </div>
                     </div>
                 }
@@ -79,7 +80,7 @@
 
             <div class="col-lg-4 sidebar">
                 @await Component.InvokeAsync("_BlogSearchComponentPartial")
-                @await Component.InvokeAsync("_BlogPopularPostComponentPartial")
+                @await Component.InvokeAsync("_BlogPopularPostComponentPartial", new { categoryid = ViewBag.id })
                 @await Component.InvokeAsync("_BlogCategoriesComponentPartial", new { id = ViewBag.id })
             </div>
         </div>
