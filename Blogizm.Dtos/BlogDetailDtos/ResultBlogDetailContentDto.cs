@@ -13,6 +13,7 @@ namespace Blogizm.Dtos.BlogDetailDtos
             public int blogCategoryId { get; set; }
             public string title { get; set; }
             public string description { get; set; }
+            public string subdescription { get; set; }
             public string coverImageUrl { get; set; }
             public DateTime createdDate { get; set; }
             public string blogImage1 { get; set; }

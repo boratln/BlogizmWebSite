@@ -23,6 +23,7 @@ namespace Blogizm.Application.Features.Mediator.Handlers.BlogHandlers
         {
            var value=await _blogRepository.GetById(request.BlogId);
             value.Description = request.Description;
+            value.SubDescription = request.SubDescription;
             value.BlogCategoryId = request.BlogCategoryId;
             value.AuthorId = request.AuthorId;
             value.CoverImageUrl = request.CoverImageUrl;

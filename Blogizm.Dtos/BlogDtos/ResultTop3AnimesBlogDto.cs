@@ -10,6 +10,8 @@ namespace Blogizm.Dtos.BlogDtos
     {
         public int BlogId { get; set; }
         public int BlogCategoryId { get; set; }
+        public int CategoryId { get; set; }
+
         public string CategoryName { get; set; }
         public string BlogCategoryName { get; set; }
         public int AuthorId { get; set; }

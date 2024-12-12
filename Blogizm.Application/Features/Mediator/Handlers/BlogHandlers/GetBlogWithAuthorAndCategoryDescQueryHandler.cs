@@ -27,6 +27,7 @@ namespace Blogizm.Application.Features.Mediator.Handlers.BlogHandlers
                 AuthorId = x.AuthorId,
                 AuthorName=x.Author.Name+" "+x.Author.Surname,
                 BlogCategoryName=x.BlogCategory.Name,
+                CategoryId=x.BlogCategory.Category.CategoryId,
                 BlogId=x.BlogId,
                 BlogImage1=x.BlogImage1,
                 BlogCategoryId=x.BlogCategoryId,
@@ -36,6 +37,7 @@ namespace Blogizm.Application.Features.Mediator.Handlers.BlogHandlers
                 CoverImageUrl=x.CoverImageUrl,
                 CreatedDate=x.CreatedDate,
                 Description=x.Description,
+                SubDescription=x.SubDescription,
                 Title=x.Title,
                 VideoUrl=x.VideoUrl,
             }).ToList();

@@ -15,6 +15,7 @@ namespace Blogizm.Domain.Entities
         public Author Author { get; set; }     
         public string Title {  get; set; }
         public string Description { get; set; }
+        public string SubDescription { get; set; }
         public string CoverImageUrl {  get; set; }
         public DateTime CreatedDate {  get; set; }
         public string? BlogImage1 {  get; set; }
