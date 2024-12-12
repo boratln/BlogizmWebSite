@@ -16,5 +16,8 @@ namespace Blogizm.Application.Interfaces.BlogInterfaces
         Task<List<Blog>> GetTop3BlogByCategoryId(int categoryid);
         int GetCountByCategoryId(int categoryid);
         Task<List<BlogAndBlogCategoryCountDto>> BlogAndBlogCategoryCountByCategoryId(int categoryid);
+        Task<List<Blog>> Get3BlogByCategoryIdinNotCurrentBlogId(int categoryid, int blogid);
+        Task<List<Blog>> Get3BlogByCategoryId(int categoryid);
+        Task <Blog> GetAuthorByBlogId(int blogid);
     }
 }
