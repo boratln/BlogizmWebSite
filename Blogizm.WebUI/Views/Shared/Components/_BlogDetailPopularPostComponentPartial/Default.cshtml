@@ -1,0 +1,24 @@
+﻿@model List<Get3BlogByCategoryIdinNotCurrentBlogIdDto>
+
+<div class="sidebar-box">
+    <h3 class="heading">Diğer Bloglar</h3>
+    <div class="post-entry-sidebar">
+        <ul>
+            @foreach(var data in Model){
+                <li>
+                    <a href="/Blog/BlogDetail/@data.BlogId?param=@data.CategoryId">
+                        <img src="@data.CoverImageUrl" alt="Image placeholder" class="me-4 rounded">
+                        <div class="text">
+                            <h4>@data.Title</h4>
+                            <div class="post-meta">
+                                <span class="mr-2">@data.CreatedDate.ToShortDateString() </span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            }
+    
+        
+        </ul>
+    </div>
+</div>
