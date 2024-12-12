@@ -37,18 +37,18 @@
 				var relativetime = GetRelativeTime(data.CreatedDate);
 				<div class="col-lg-4 mb-4">
 					<div class="post-entry-alt">
-						<a href="single.html" class="img-link"><img style="width:100%;height:250px" src="@data.CoverImageUrl" alt="Image" class="img-fluid"></a>
+						<a href="/Blog/BlogDetail/@data.BlogId?param=@data.CategoryId" class="img-link"><img style="width:100%;height:250px" src="@data.CoverImageUrl" alt="Image" class="img-fluid"></a>
 						<div class="excerpt">
-							
 
-							<h2><a href="single.html">@data.Title</a></h2>
+
+							<h2><a href="/Blog/BlogDetail/@data.BlogId?param=@data.CategoryId">@data.Title</a></h2>
 							<div class="post-meta align-items-center text-left clearfix">
 								<figure class="author-figure mb-0 me-3 float-start"><img src="@data.BlogImage1" alt="Image" class="img-fluid"></figure>
 								<span class="d-inline-block mt-1">Yazar: <a href="#">@data.AuthorName</a></span>
 								<span>@relativetime</span>
 							</div>
 
-							<p id="bloganimesdesc-@data.BlogId">@data.Description <a href="#" class="read-more">Devamını Oku</a></p>
+							<p id="bloganimesdesc-@data.BlogId">@data.Description <a href="/Blog/BlogDetail/@data.BlogId?param=@data.CategoryId" class="read-more">Devamını Oku</a></p>
 							
 							<script>
 								document.querySelectorAll('[id^="bloganimesdesc-"]').forEach(element => {

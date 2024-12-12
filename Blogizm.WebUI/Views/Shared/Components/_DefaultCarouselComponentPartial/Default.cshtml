@@ -12,7 +12,7 @@
                     {
                         var data = Model[i];
                         <div class="carousel-item @(i == 0 ? "active" : "")">
-                            <a href="/Blog/BlogDetail/@data.BlogId">
+                            <a href="/Blog/BlogDetail/@data.BlogId?param=@data.CategoryId">
                             <img src="@data.CoverImageUrl" style="height: 500px; object-fit: contain;" class="d-block w-100" alt="@data.Title">
                             </a>
                             <div class="carousel-caption d-block"
