@@ -2,14 +2,14 @@
     ViewData["Title"] = "BlogDetail";
     Layout = "~/Views/UILayout/Index.cshtml";
 }
-<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('images/hero_5.jpg');">
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('/untree.co-blogy/images/hero_5.jpg');">
     <div class="container">
         <div class="row same-height justify-content-center">
             <div class="col-md-6">
                 <div class="post-entry text-center">
                     <h1 class="mb-4">Don’t assume your user data in the cloud is safe</h1>
                     <div class="post-meta align-items-center text-center">
-                        <figure class="author-figure mb-0 me-3 d-inline-block"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+                        <figure class="author-figure mb-0 me-3 d-inline-block"><img src="/untree.co-blogy/images/person_1.jpg" alt="Image" class="img-fluid"></figure>
                         <span class="d-inline-block mt-1">By Carl Atkinson</span>
                         <span>&nbsp;-&nbsp; February 10, 2019</span>
                     </div>
@@ -21,10 +21,17 @@
 <section class="section">
     <div class="container">
         <div class="row blog-entries element-animate">
-            <div class="col-md-12 col-lg-12 main-content">
+            <div class="col-md-12 col-lg-8 main-content">
                 @await Component.InvokeAsync("_BlogDetailContentComponentPartial", new { id = ViewBag.id })
                 @await Component.InvokeAsync("_BlogDetailCommentListComponentPartial")
                 @await Component.InvokeAsync("_BlogDetailAddCommentComponentPartial") 
+            </div>
+
+
+            <div class="col-md-12 col-lg-4 sidebar">
+                @await Component.InvokeAsync("_BlogDetailAuthorComponentPartial", new { blogid = ViewBag.id })
+                @await Component.InvokeAsync("_BlogDetailPopularPostComponentPartial", new { categoryid = ViewBag.categoryid ,blogid=ViewBag.id})
+                @await Component.InvokeAsync("_BlogCategoriesComponentPartial", new { id = ViewBag.categoryid })
             </div>
 
         </div>
