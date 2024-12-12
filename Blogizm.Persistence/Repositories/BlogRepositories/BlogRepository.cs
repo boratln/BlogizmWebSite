@@ -35,11 +35,38 @@ namespace Blogizm.Persistence.Repositories.BlogRepositories
               BlogCategoryName = grouped.Key.Name
           }
       )
-.OrderBy(dto => dto.BlogCount > 0 ? 0 : 1)  // BlogCount > 0 olanlar önce gelir
+.OrderBy(dto => dto.BlogCount > 0 ? 0 : 1) 
       .ThenBy(dto => dto.BlogCategoryName)        
       .ToListAsync();
             return result;
 
+        }
+
+        public async Task<List<Blog>> Get3BlogByCategoryId(int categoryid)
+        {
+            var values = await _blogContext.Blogs.Include(x => x.BlogCategory)
+                 .ThenInclude(x => x.Category)
+                 .Include(x => x.Author)
+                 .Where(x => x.BlogCategory.CategoryId == categoryid)
+                 .Take(3)
+                 .ToListAsync();
+            return values;
+        }
+
+        public async Task<List<Blog>> Get3BlogByCategoryIdinNotCurrentBlogId(int categoryid, int currentblogid)
+        {
+            var values = await _blogContext.Blogs
+                .Include(x => x.Author)
+                .Include(x => x.BlogCategory)
+                .ThenInclude(x => x.Category)
+                .Where(x => x.BlogCategory.CategoryId == categoryid && x.BlogId != currentblogid).Take(3).ToListAsync();
+            return values;
+        }
+
+        public async Task<Blog> GetAuthorByBlogId(int blogid)
+        {
+            var author = await _blogContext.Blogs.Include(x => x.Author).Where(x => x.BlogId == blogid).FirstOrDefaultAsync();
+            return author;
         }
 
         public async Task<List<Blog>> GetBlogByCategoryId(int categoryid)
