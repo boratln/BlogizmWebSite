@@ -36,6 +36,7 @@ namespace Blogizm.Application.Features.Mediator.Handlers.BlogHandlers
                     CoverImageUrl = value.CoverImageUrl,
                     CreatedDate = value.CreatedDate,
                     Description = value.Description,
+                    SubDescription=value.SubDescription,
                     Title = value.Title,
                     VideoUrl = value.VideoUrl,
                 };
