@@ -84,5 +84,23 @@ namespace Blogizm.WebApi.Controllers
             var values = await _mediator.Send(new BlogAndBlogCategoryCountByCategoryIdQuery(id));
             return Ok(values);
         }
+        [HttpGet("Get3BlogByCategoryIdinNotCurrentBlogId/{categoryid}/{id}")]
+        public async Task<IActionResult> Get3BlogByCategoryIdinNotCurrentBlogId(int categoryid,int id)
+        {
+            var values = await _mediator.Send(new Get3BlogByCategoryIdinNotCurrentBlogIdQuery(categoryid, id));
+            return Ok(values);
+        }
+        [HttpGet("Get3BlogByCategoryId/{categoryid}")]
+        public async Task<IActionResult> Get3BlogByCategoryId(int categoryid)
+        {
+            var values = await _mediator.Send(new Get3BlogByCategoryIdQuery(categoryid));
+            return Ok(values);
+        }
+        [HttpGet("GetAuthorByBlogId/{blogid}")]
+        public async Task<IActionResult> GetAuthorByBlogId(int blogid)
+        {
+            var author = await _mediator.Send(new GetAuthorByBlogIdQuery(blogid));
+            return Ok(author);
+        }
     }
 }
