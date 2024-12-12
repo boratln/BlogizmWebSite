@@ -11,8 +11,8 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h4 class="card-title">Blog Ekleme İşlemi</h4>
-                        <p class="card-subtitle mb-4">İlgili parametreleri doldurup Blog  ekleme işlemini gerçekleştirebilirsiniz.</p>
+                        <h4 class="card-title">Blog Güncelleme İşlemi</h4>
+                        <p class="card-subtitle mb-4">İlgili parametreleri doldurup Blog güncelleme işlemini gerçekleştirebilirsiniz.</p>
 
                         <form method="post">
                             <input type="hidden" asp-for="BlogId" />
@@ -31,6 +31,10 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Blog  Açıklama</label>
                                 <input type="text" autocomplete="off" class="form-control" asp-for="Description" id="exampleInputPassword1">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Blog Alt Açıklama</label>
+                                <input type="text" autocomplete="off" class="form-control" asp-for="SubDescription" id="exampleInputPassword1">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Blog Kapak Resim URL</label>
