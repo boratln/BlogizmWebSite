@@ -57,9 +57,10 @@ namespace Blogizm.WebUI.Controllers
             //Yorum eklense
             return RedirectToAction("Index", "Blog");
         }
-        public async Task<IActionResult> BlogDetail(int id)
+        public async Task<IActionResult> BlogDetail(int id,string param)
         {
             ViewBag.id = id;
+            ViewBag.categoryid=int.Parse(param);
             return View();
         }
         
