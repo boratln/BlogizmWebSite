@@ -5,7 +5,7 @@
 			<div class="site-navigation">
 				<div class="row g-0 align-items-center">
 					<div class="col-2">
-						<a href="index.html" class="logo m-0 float-start">Blogizm<span class="text-primary">.</span></a>
+						<a href="/Default/Index" style="text-decoration:none" class="logo m-0 float-start">Blogizm<span class="text-primary">.</span></a>
 					</div>
 					<div class="col-8 text-center">
 				
@@ -26,27 +26,30 @@
 							<li><a href="/Contact/Index">İletişim</a></li>
 
 							<li class="has-children">
-								<a href="javascript:void(0)">Hesabım</a>
-								<ul class="dropdown">
-									@if (User.Identity.IsAuthenticated)
-									{
-										var token = User.Claims.FirstOrDefault(c => c.Type == "accessToken")?.Value;
-										if (token != null)
-										{
-											<li><a style="text-decoration:none" href="/User/Profile">  Profilim</a></li>
-											<li><a style="text-decoration:none" href="/User/Logout">Çıkış Yap</a></li>
+								@if (User.Identity.IsAuthenticated)
+								{
+									<a href="javascript:void(0)">Hesabım</a>
+									<ul class="dropdown">
+										@{
+											var token = User.Claims.FirstOrDefault(c => c.Type == "accessToken")?.Value;
+											if (token != null)
+											{
+												<li><a style="text-decoration:none" href="/User/Profile">Profilim</a></li>
+												<li><a style="text-decoration:none" href="/User/Logout">Çıkış Yap</a></li>
+											}
 										}
-										
-									}
-									else
-									{
-										<li><a style="text-decoration:none" href="/User/Login"> Giriş Yap</a></li>
-										<li><a style="text-decoration:none" href="/User/Register"> Kayıt Ol</a></li>
-									}
-									
-
-								</ul>
+									</ul>
+								}
+								else
+								{
+									<a href="javascript:void(0)">Misafir</a>
+									<ul class="dropdown">
+										<li><a style="text-decoration:none" href="/User/Login">Giriş Yap</a></li>
+										<li><a style="text-decoration:none" href="/User/Register">Kayıt Ol</a></li>
+									</ul>
+								}
 							</li>
+
 						</ul>
 					</div>
 					<div class="col-2 text-end">
