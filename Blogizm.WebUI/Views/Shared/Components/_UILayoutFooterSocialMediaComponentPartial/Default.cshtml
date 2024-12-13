@@ -1,0 +1,11 @@
+﻿@model List<ResultSocialMediaDto>
+<div class="widget">
+	<h3>Sosyal Medya</h3>
+	<ul class="list-unstyled social">
+		@foreach(var data in Model){
+			<li><a href="@data.URL"><span class="icon-@data.Title.ToLower()"></span></a></li>
+
+		}
+	
+	</ul>
+</div> <!-- /.widget -->
