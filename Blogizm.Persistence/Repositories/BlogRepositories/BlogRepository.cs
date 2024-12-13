@@ -93,10 +93,32 @@ namespace Blogizm.Persistence.Repositories.BlogRepositories
             return count;
         }
 
+        public async Task<List<Blog>> GetLast3Blog()
+        {
+            var values = await _blogContext.Blogs
+                 .Include(x => x.BlogCategory)
+                 .ThenInclude(x => x.Category).Include(x => x.Author)
+                 .Take(3).ToListAsync();
+            return values;
+        }
+
         public async Task<List<Blog>> GetTop3BlogByCategoryId(int categoryid)
         {
-            var values = await _blogContext.Blogs.Include(x => x.Author).Include(x => x.BlogCategory).ThenInclude(x => x.Category).Where(x=>x.BlogCategory.CategoryId==categoryid).Take(3).OrderByDescending(x => x.BlogId).ToListAsync();
+            var values = await _blogContext.Blogs.Include(x => x.Author).Include(x => x.BlogCategory).ThenInclude(x => x.Category).Where(x=>x.BlogCategory.CategoryId==categoryid).OrderByDescending(x=>x.BlogId).Take(3).OrderByDescending(x => x.BlogId).ToListAsync();
             return values;
+        }
+
+        public async Task<List<Blog>> SearchBlogs(string word)
+        {
+            var searchedvalues = await (from searchedword in _blogContext.Blogs
+                                        where searchedword.Title.ToLower().Contains(word.ToLower()) 
+                                        select searchedword)
+                                        .Include(x=>x.Author)
+                                        .Include(x=>x.BlogCategory)
+                                        .ThenInclude(x=>x.Category)
+                                        .ToListAsync();
+          
+            return searchedvalues;
         }
     }
 }
