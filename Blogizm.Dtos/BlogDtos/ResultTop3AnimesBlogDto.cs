@@ -16,6 +16,7 @@ namespace Blogizm.Dtos.BlogDtos
         public string BlogCategoryName { get; set; }
         public int AuthorId { get; set; }
         public string AuthorName { get; set; }
+        public string AuthorImage { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string CoverImageUrl { get; set; }
