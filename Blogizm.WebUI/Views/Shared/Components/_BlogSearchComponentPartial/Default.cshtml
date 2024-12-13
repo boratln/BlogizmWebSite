@@ -1,6 +1,6 @@
 ﻿<div class="sidebar-box search-form-wrap mb-4">
-    <form asp-controller="Blog" asp-action="Search" class="sidebar-search-form" >
+    <form method="post" class="sidebar-search-form" >
         <span class="bi-search"></span>
-        <input type="text" class="form-control" id="s" placeholder="İstediğiniz Blogu aratınız">
+        <input type="text" class="form-control" name="word" id="s" placeholder="İstediğiniz Blogu aratınız">
     </form>
 </div>  
