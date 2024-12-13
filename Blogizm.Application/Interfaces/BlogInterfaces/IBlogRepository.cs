@@ -19,5 +19,7 @@ namespace Blogizm.Application.Interfaces.BlogInterfaces
         Task<List<Blog>> Get3BlogByCategoryIdinNotCurrentBlogId(int categoryid, int blogid);
         Task<List<Blog>> Get3BlogByCategoryId(int categoryid);
         Task <Blog> GetAuthorByBlogId(int blogid);
+        Task<List<Blog>> GetLast3Blog();
+        Task<List<Blog>> SearchBlogs(string word);
     }
 }
