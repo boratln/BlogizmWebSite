@@ -1,0 +1,51 @@
+﻿@model List<ResultLast3BlogDto>
+@functions {
+	public string GetRelativeTime(DateTime createdDate)
+	{
+		var timeSpan = DateTime.Now - createdDate;
+
+		if (timeSpan.TotalMinutes == 0)
+		{
+			return $"{(int)timeSpan.TotalSeconds} saniye önce";
+		}
+		if (timeSpan.TotalMinutes < 60)
+		{
+			return $"{(int)timeSpan.TotalMinutes} dakika önce";
+		}
+		else if (timeSpan.TotalHours < 24)
+		{
+			return $"{(int)timeSpan.TotalHours} saat önce";
+		}
+		else
+		{
+			return $"{(int)timeSpan.TotalDays} gün önce";
+		}
+	}
+}
+<div class="col-lg-6">
+	<div class="widget">
+		<h3 class="mb-4">Girilen Son Postlar</h3>
+		<div class="post-entry-footer">
+			<ul>
+				@foreach(var data in Model){
+					string relativetime = GetRelativeTime(data.CreatedDate);
+					<li>
+						<a href="/Blog/BlogDetail/@data.BlogId?param=@data.CategoryId">
+							<img src="@data.CoverImageUrl" alt="Image placeholder" class="me-4 rounded">
+							<div class="text">
+								<h4>@data.Title</h4>
+								<div class="post-meta">
+									<span class="mr-2">@relativetime </span>
+								</div>
+							</div>
+						</a>
+					</li>
+				}
+			
+	
+			</ul>
+		</div>
+
+
+	</div> <!-- /.widget -->
+</div> <!-- /.col-lg-4 -->
