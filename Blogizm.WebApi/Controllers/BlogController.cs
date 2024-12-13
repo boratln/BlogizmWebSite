@@ -102,5 +102,17 @@ namespace Blogizm.WebApi.Controllers
             var author = await _mediator.Send(new GetAuthorByBlogIdQuery(blogid));
             return Ok(author);
         }
+        [HttpGet("GetLast3Blog")]
+        public async Task<IActionResult> GetLast3Blog()
+        {
+            var blogs = await _mediator.Send(new GetLast3BlogQuery());
+            return Ok(blogs);
+        }
+        [HttpGet("SearchBlogs/{searchword}")]
+        public async Task<IActionResult> SearchBlogs(string searchword)
+        {
+            var blogs = await _mediator.Send(new SearchBlogsQuery(searchword));
+            return Ok(blogs);
+        }
     }
 }
