@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigin",
         policy =>
         {
-            policy.WithOrigins("https://192.168.1.93") // Frontend'in çalýþtýðý URL
+            policy.WithOrigins("https://192.168.1.93") 
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
