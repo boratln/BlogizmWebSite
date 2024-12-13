@@ -26,6 +26,7 @@ namespace Blogizm.Application.Features.Mediator.Handlers.BlogHandlers
             {
                 AuthorId = x.AuthorId,
                 AuthorName = x.Author.Name + " " + x.Author.Surname,
+                AuthorImage=x.Author.AuthorImage,
                 BlogCategoryId = x.BlogCategoryId,
                 BlogCategoryName = x.BlogCategory.Name,
                 SubDescription=x.SubDescription,
